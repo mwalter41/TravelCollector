@@ -34,6 +34,16 @@ class TravelViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func cameraTapped(_ sender: AnyObject) {
     }
     @IBAction func addTapped(_ sender: AnyObject) {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let travel = Travel(context: context)
+        travel.title = titleTextField.text
+        travel.image = UIImagePNGRepresentation(travelImageView.image!) as NSData?
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        navigationController!.popViewController(animated: true)
+        
     }
     
 }

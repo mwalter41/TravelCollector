@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11517.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TravelCollector" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="TravelCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,7 +19,22 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oHK-wQ-RPJ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oHK-wQ-RPJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="10X-gN-EzM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oHK-wQ-RPJ" secondAttribute="bottom" constant="419" id="41Y-UO-5Qi"/>
+                            <constraint firstItem="oHK-wQ-RPJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="79" id="Jyp-pi-WUy"/>
+                            <constraint firstItem="oHK-wQ-RPJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LL2-oo-Da8"/>
+                            <constraint firstItem="oHK-wQ-RPJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="56" id="cPC-1m-TEj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oHK-wQ-RPJ" secondAttribute="trailing" constant="24" id="pbg-dY-A4s"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oHK-wQ-RPJ" secondAttribute="bottom" id="vIV-Cd-aEu"/>
+                            <constraint firstAttribute="trailing" secondItem="oHK-wQ-RPJ" secondAttribute="trailing" id="vek-yE-5qD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IuT-zO-RWQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="F4s-Cz-Xe3">
@@ -27,6 +43,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="oHK-wQ-RPJ" id="1nr-2C-Kgv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
