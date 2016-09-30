@@ -13,6 +13,8 @@
 		365C24551D9DB60500EA3B0E /* TravelCollector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 365C24531D9DB60500EA3B0E /* TravelCollector.xcdatamodeld */; };
 		365C24571D9DB60500EA3B0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 365C24561D9DB60500EA3B0E /* Assets.xcassets */; };
 		365C245A1D9DB60500EA3B0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365C24581D9DB60500EA3B0E /* LaunchScreen.storyboard */; };
+		36FD4F541D9EEDBB009C98FB /* Chile.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 36FD4F531D9EEDBB009C98FB /* Chile.jpeg */; };
+		36FD4F561D9EEE98009C98FB /* TravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD4F551D9EEE98009C98FB /* TravelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		365C24561D9DB60500EA3B0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		365C24591D9DB60500EA3B0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		365C245B1D9DB60500EA3B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36FD4F531D9EEDBB009C98FB /* Chile.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Chile.jpeg; sourceTree = "<group>"; };
+		36FD4F551D9EEE98009C98FB /* TravelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +60,11 @@
 		365C244B1D9DB60500EA3B0E /* TravelCollector */ = {
 			isa = PBXGroup;
 			children = (
+				36FD4F531D9EEDBB009C98FB /* Chile.jpeg */,
 				365C244C1D9DB60500EA3B0E /* AppDelegate.swift */,
 				365C244E1D9DB60500EA3B0E /* ViewController.swift */,
 				365C24501D9DB60500EA3B0E /* Main.storyboard */,
+				36FD4F551D9EEE98009C98FB /* TravelViewController.swift */,
 				365C24561D9DB60500EA3B0E /* Assets.xcassets */,
 				365C24581D9DB60500EA3B0E /* LaunchScreen.storyboard */,
 				365C245B1D9DB60500EA3B0E /* Info.plist */,
@@ -129,6 +135,7 @@
 				365C245A1D9DB60500EA3B0E /* LaunchScreen.storyboard in Resources */,
 				365C24571D9DB60500EA3B0E /* Assets.xcassets in Resources */,
 				365C24521D9DB60500EA3B0E /* Main.storyboard in Resources */,
+				36FD4F541D9EEDBB009C98FB /* Chile.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +148,7 @@
 			files = (
 				365C24551D9DB60500EA3B0E /* TravelCollector.xcdatamodeld in Sources */,
 				365C244F1D9DB60500EA3B0E /* ViewController.swift in Sources */,
+				36FD4F561D9EEE98009C98FB /* TravelViewController.swift in Sources */,
 				365C244D1D9DB60500EA3B0E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +311,7 @@
 				365C24601D9DB60500EA3B0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
