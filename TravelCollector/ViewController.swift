@@ -44,6 +44,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.imageView?.image = UIImage(data: travels.image as! Data)
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let travels = travel[indexPath.row]
+performSegue(withIdentifier: "travelSegue", sender: travels)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! TravelViewController
+        nextVC.travel = sender as? Travel
+    }
     
 }
 

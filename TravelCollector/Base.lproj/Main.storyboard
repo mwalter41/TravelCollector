@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11517.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,26 +19,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oHK-wQ-RPJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oHK-wQ-RPJ">
+                                <frame key="frameInset" minY="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="oHK-wQ-RPJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="10X-gN-EzM"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oHK-wQ-RPJ" secondAttribute="bottom" constant="419" id="41Y-UO-5Qi"/>
-                            <constraint firstItem="oHK-wQ-RPJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="79" id="Jyp-pi-WUy"/>
-                            <constraint firstItem="oHK-wQ-RPJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LL2-oo-Da8"/>
-                            <constraint firstItem="oHK-wQ-RPJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="56" id="cPC-1m-TEj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oHK-wQ-RPJ" secondAttribute="trailing" constant="24" id="pbg-dY-A4s"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oHK-wQ-RPJ" secondAttribute="bottom" id="vIV-Cd-aEu"/>
-                            <constraint firstAttribute="trailing" secondItem="oHK-wQ-RPJ" secondAttribute="trailing" id="vek-yE-5qD"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IuT-zO-RWQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="F4s-Cz-Xe3">
                             <connections>
-                                <segue destination="qFW-PP-KEF" kind="show" id="fwK-OM-5i3"/>
+                                <segue destination="qFW-PP-KEF" kind="show" identifier="travelSegue" id="fwK-OM-5i3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -80,13 +71,21 @@
                                     <action selector="addTapped:" destination="qFW-PP-KEF" eventType="touchUpInside" id="AiX-uh-oAP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TR9-F0-x6F">
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="qFW-PP-KEF" eventType="touchUpInside" id="vp1-sX-8Vb"/>
+                                    <action selector="deleteTapped:" destination="qFW-PP-KEF" eventType="touchUpInside" id="Oqu-bH-Ovj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="khQ-Y1-oFU" firstAttribute="width" secondItem="l3X-Cy-iPQ" secondAttribute="width" constant="-143" id="5lE-jq-AWw"/>
-                            <constraint firstItem="khQ-Y1-oFU" firstAttribute="width" secondItem="l3X-Cy-iPQ" secondAttribute="width" id="8tt-cV-lUq"/>
+                            <constraint firstItem="TR9-F0-x6F" firstAttribute="centerX" secondItem="7D3-Oh-qhR" secondAttribute="centerX" id="PGd-8V-g7Q"/>
                             <constraint firstItem="08h-1E-RsN" firstAttribute="top" secondItem="khQ-Y1-oFU" secondAttribute="bottom" constant="28" id="V0a-PU-wwV"/>
                             <constraint firstItem="l3X-Cy-iPQ" firstAttribute="top" secondItem="fai-4A-d7U" secondAttribute="bottom" constant="55" id="X5S-Oj-n0r"/>
+                            <constraint firstItem="TR9-F0-x6F" firstAttribute="top" secondItem="08h-1E-RsN" secondAttribute="bottom" constant="14" id="grb-aG-sGY"/>
                             <constraint firstItem="khQ-Y1-oFU" firstAttribute="centerX" secondItem="7D3-Oh-qhR" secondAttribute="centerX" id="oj1-ra-ZtQ"/>
                             <constraint firstItem="khQ-Y1-oFU" firstAttribute="top" secondItem="l3X-Cy-iPQ" secondAttribute="bottom" constant="32" id="ttf-9G-hac"/>
                             <constraint firstItem="l3X-Cy-iPQ" firstAttribute="centerX" secondItem="7D3-Oh-qhR" secondAttribute="centerX" id="vPu-Iz-x58"/>
@@ -108,6 +107,8 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addupdatebutton" destination="08h-1E-RsN" id="xPH-rd-eVJ"/>
+                        <outlet property="deleteButton" destination="TR9-F0-x6F" id="NKe-aH-hkn"/>
                         <outlet property="titleTextField" destination="khQ-Y1-oFU" id="zrL-tS-x9c"/>
                         <outlet property="travelImageView" destination="l3X-Cy-iPQ" id="kdD-oc-Wpb"/>
                     </connections>

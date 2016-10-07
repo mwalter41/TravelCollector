@@ -9,15 +9,28 @@
 import UIKit
 
 class TravelViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var addupdatebutton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var travelImageView: UIImageView!
     
     var imagePicker = UIImagePickerController()
+    var travel : Travel? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         imagePicker.delegate = self
+        
+        if travel != nil {
+           travelImageView.image = UIImage(data: travel!.image as! Data)
+            titleTextField.text = travel!.title
+            
+            addupdatebutton.setTitle("Update", for: .normal)
+        } else {
+            deleteButton.isHidden = true
+        }
     }
     @IBAction func photosTapped(_ sender: AnyObject) {
         imagePicker.sourceType = .photoLibrary
@@ -32,18 +45,38 @@ class TravelViewController: UIViewController, UIImagePickerControllerDelegate, U
         imagePicker.dismiss(animated: true, completion: nil)
     }
     @IBAction func cameraTapped(_ sender: AnyObject) {
+        imagePicker.sourceType = .camera
+        
+        present(imagePicker, animated: true, completion: nil)
     }
     @IBAction func addTapped(_ sender: AnyObject) {
         
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        if travel != nil {
+            travel!.title = titleTextField.text
+            travel!.image = UIImagePNGRepresentation(travelImageView.image!) as NSData?
+
+        }else {
+                let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                
+                let travel = Travel(context: context)
+                travel.title = titleTextField.text
+                travel.image = UIImagePNGRepresentation(travelImageView.image!) as NSData?
+            }
         
-        let travel = Travel(context: context)
-        travel.title = titleTextField.text
-        travel.image = UIImagePNGRepresentation(travelImageView.image!) as NSData?
+        
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
         navigationController!.popViewController(animated: true)
         
     }
     
+    @IBAction func deleteTapped(_ sender: AnyObject) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+context.delete(travel!)
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        navigationController!.popViewController(animated: true)
+
+    }
 }
